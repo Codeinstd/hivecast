@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hivecast/screens/home.dart';
 import 'package:hivecast/screens/library.dart';
 
 void main() {

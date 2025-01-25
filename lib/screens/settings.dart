@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:hivecast/classes/style.dart';
+import 'package:hivecast/screens/home.dart';
+import 'package:hivecast/screens/library.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -13,6 +15,7 @@ class Settings extends StatefulWidget {
 List<String> options = ['Option 1', 'Option 2'];
 
 class _SettingsState extends State<Settings> {
+  int _selectedIndex = 0;
   String currentOption = options[0];
   bool isChecked = false;
   @override
@@ -44,30 +47,51 @@ class _SettingsState extends State<Settings> {
       // bottomNavbar //
       bottomNavigationBar: Container(
         color: style.black,
-        child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
           child: GNav(
             gap: 8,
             backgroundColor: style.black,
             color: style.divider,
             activeColor: style.black,
             tabBackgroundColor: style.white,
-            tabMargin: EdgeInsets.all(8),
-            padding: EdgeInsets.all(8),
+            tabMargin: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             tabs: [
               GButton(
                 icon: Icons.home,
                 text: 'Explore',
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const Home()),
+                  );
+                },
               ),
               GButton(
                 icon: Icons.library_add,
                 text: 'Library',
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const MyLibrary()),
+                  );
+                },
               ),
               GButton(
                 icon: Icons.settings,
                 text: 'Settings',
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const Settings()),
+                  );
+                },
               ),
             ],
+            selectedIndex: _selectedIndex,
+            onTabChange: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
           ),
         ),
       ),
@@ -78,7 +102,8 @@ class _SettingsState extends State<Settings> {
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(left: 24, right: 24, top: 16, bottom: 8),
+              padding: const EdgeInsets.only(
+                  left: 24, right: 24, top: 16, bottom: 8),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

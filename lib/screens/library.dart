@@ -12,32 +12,21 @@ class MyLibrary extends StatefulWidget {
 
 class _MyLibraryState extends State<MyLibrary>
     with SingleTickerProviderStateMixin {
-  late final TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 2, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
-  }
-
   // Tab Item - Only Text
-  final List<Tab> _tabs = const [
-    Tab(
-      text: 'In Progress',
-    ),
-    Tab(
-      text: 'Recent Activity',
-    ),
-  ];
+  // final List<Tab> _tabs = const [
+  //   Tab(
+  //     text: 'In Progress',
+  //     height: 30,
+  //   ),
+  //   Tab(
+  //     text: 'Recent Activity',
+  //     height: 30,
+  //   ),
+  // ];
 
   @override
   Widget build(BuildContext context) {
+    TabController tabController = TabController(length: 2, vsync: this);
     return Scaffold(
       backgroundColor: style.white,
       // appbar //
@@ -84,256 +73,450 @@ class _MyLibraryState extends State<MyLibrary>
           Expanded(
             child: Padding(
               padding: EdgeInsets.only(left: 16, right: 16, top: 8),
-              child: Column(children: [
-                // tab content //
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // tab content //
 
-                TabBar(
-                  controller: _tabController,
-                  dividerColor: style.white,
-                  tabs: _tabs,
-                  labelColor: style.black,
-                  indicatorColor: style.black,
-                  unselectedLabelColor: style.black,
-                  indicator: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18.0),
-                      color: style.gray03),
-                  indicatorSize: TabBarIndicatorSize.tab,
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-
-                // body //
-                Expanded(
-                    child: TabBarView(controller: _tabController, children: [
-                  Text(
-                    'Today',
-                    style: GoogleFonts.outfit(
-                      color: style.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12,
-                      letterSpacing: -0.25,
-                    ),
-                  ),
-                  ListView.builder(
-                    itemCount: 2,
-                    physics: const ClampingScrollPhysics(),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) => Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // column 01 //
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              color: style.black,
-                              child: Image.asset(
-                                'asset/Mockupd.png',
-                                height: 103,
-                                width: 152,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 4,
-                            ),
-                            // first line //
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '2 min watch',
-                                  style: GoogleFonts.outfit(
-                                    color: style.gray04,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 10,
-                                    letterSpacing: -0.25,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 6,
-                                ),
-                                // text 2 //
-                                Text(
-                                  'Oct 16, 2024',
-                                  style: GoogleFonts.outfit(
-                                    color: style.gray04,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 10,
-                                    letterSpacing: -0.25,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            // big text //
-                            Text(
-                              'How to mockup design',
-                              style: GoogleFonts.outfit(
-                                color: style.black,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 15,
-                                letterSpacing: -0.25,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 4,
-                            ),
-                            // last line //
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Image.asset(
-                                  'asset/lennys.png',
-                                  height: 12,
-                                  width: 12,
-                                ),
-                                const SizedBox(
-                                  width: 6,
-                                ),
-                                // text 2 //
-                                Text(
-                                  'Lenny\'s Corner',
-                                  style: GoogleFonts.outfit(
-                                    color: style.gray04,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 10,
-                                    letterSpacing: -0.25,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
+                    TabBar(
+                      controller: tabController,
+                      dividerColor: style.white,
+                      tabs: const [
+                        // tab 1//
+                        Tab(
+                          text: 'In-Progress',
                         ),
-                        const SizedBox(
-                          width: 24,
-                        ),
-                        // line 2 //
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              color: style.black,
-                              child: Image.asset(
-                                'asset/AE.png',
-                                height: 103,
-                                width: 152,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 4,
-                            ),
-                            // first line //
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '2 min watch',
-                                  style: GoogleFonts.outfit(
-                                    color: style.gray04,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 10,
-                                    letterSpacing: -0.25,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 6,
-                                ),
-                                // text 2 //
-                                Text(
-                                  'Oct 16, 2024',
-                                  style: GoogleFonts.outfit(
-                                    color: style.gray04,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 10,
-                                    letterSpacing: -0.25,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            // big text //
-                            Text(
-                              'Learn after-effect',
-                              style: GoogleFonts.outfit(
-                                color: style.black,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 15,
-                                letterSpacing: -0.25,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 4,
-                            ),
-                            // last line //
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Image.asset(
-                                  'asset/a-e.png',
-                                  height: 12,
-                                  width: 12,
-                                ),
-                                const SizedBox(
-                                  width: 6,
-                                ),
-                                // text 2 //
-                                Text(
-                                  'Adobe After Effect',
-                                  style: GoogleFonts.outfit(
-                                    color: style.gray04,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 10,
-                                    letterSpacing: -0.25,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 24,
+                        // tab 2 //
+                        Tab(
+                          text: 'Recent Activity',
                         ),
                       ],
+                      labelColor: style.black,
+                      indicatorColor: style.black,
+                      unselectedLabelColor: style.black,
+                      indicator: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18.0),
+                          color: style.gray03),
+                      indicatorSize: TabBarIndicatorSize.tab,
                     ),
-                  ),
-                ]))
-              ]),
+                    const SizedBox(
+                      height: 24,
+                    ),
+
+                    SizedBox(
+                      height: 600,
+                      child: TabBarView(
+                        controller: tabController,
+                        children: [
+                          //1//
+                          Container(
+                            child: ListView(
+                              children: [
+                                // text //
+                                Text(
+                                  'Today',
+                                  style: GoogleFonts.outfit(
+                                    color: style.black,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 16,
+                                    letterSpacing: -0.25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+
+                                // row 01 //
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    // column 01 //
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          color: style.black,
+                                          child: Image.asset(
+                                            'asset/Mockupd.png',
+                                            height: 103,
+                                            width: 152,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        // first line //
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              '2 min watch',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 6,
+                                            ),
+                                            // text 2 //
+                                            Text(
+                                              'Oct 16, 2024',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        // big text //
+                                        Text(
+                                          'How to mockup design',
+                                          style: GoogleFonts.outfit(
+                                            color: style.black,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 15,
+                                            letterSpacing: -0.25,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        // last line //
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Image.asset(
+                                              'asset/lennys.png',
+                                              height: 12,
+                                              width: 12,
+                                            ),
+                                            const SizedBox(
+                                              width: 6,
+                                            ),
+                                            // text 2 //
+                                            Text(
+                                              'Lenny\'s Corner',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    // line 2 //
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          color: style.black,
+                                          child: Image.asset(
+                                            'asset/AE.png',
+                                            height: 103,
+                                            width: 152,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        // first line //
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              '2 min watch',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 6,
+                                            ),
+                                            // text 2 //
+                                            Text(
+                                              'Oct 16, 2024',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        // big text //
+                                        Text(
+                                          'Learn after-effect',
+                                          style: GoogleFonts.outfit(
+                                            color: style.black,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 15,
+                                            letterSpacing: -0.25,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        // last line //
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Image.asset(
+                                              'asset/a-e.png',
+                                              height: 12,
+                                              width: 12,
+                                            ),
+                                            const SizedBox(
+                                              width: 6,
+                                            ),
+                                            // text 2 //
+                                            Text(
+                                              'Adobe After Effect',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                // const SizedBox(
+                                //   height: 16,
+                                // ),
+                              ],
+                            ),
+                          ),
+
+                          //1//
+                          Container(
+                            child: ListView(
+                              children: [
+                                // text //
+                                Text(
+                                  'Today',
+                                  style: GoogleFonts.outfit(
+                                    color: style.black,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 16,
+                                    letterSpacing: -0.25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+
+                                // row 01 //
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    // column 01 //
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          color: style.black,
+                                          child: Image.asset(
+                                            'asset/Mockupd.png',
+                                            height: 103,
+                                            width: 152,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        // first line //
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              '2 min watch',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 6,
+                                            ),
+                                            // text 2 //
+                                            Text(
+                                              'Oct 16, 2024',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        // big text //
+                                        Text(
+                                          'How to mockup design',
+                                          style: GoogleFonts.outfit(
+                                            color: style.black,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 15,
+                                            letterSpacing: -0.25,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        // last line //
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Image.asset(
+                                              'asset/lennys.png',
+                                              height: 12,
+                                              width: 12,
+                                            ),
+                                            const SizedBox(
+                                              width: 6,
+                                            ),
+                                            // text 2 //
+                                            Text(
+                                              'Lenny\'s Corner',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    // line 2 //
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          color: style.black,
+                                          child: Image.asset(
+                                            'asset/AE.png',
+                                            height: 103,
+                                            width: 152,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        // first line //
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              '2 min watch',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 6,
+                                            ),
+                                            // text 2 //
+                                            Text(
+                                              'Oct 16, 2024',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        // big text //
+                                        Text(
+                                          'Learn after-effect',
+                                          style: GoogleFonts.outfit(
+                                            color: style.black,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 15,
+                                            letterSpacing: -0.25,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 4,
+                                        ),
+                                        // last line //
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Image.asset(
+                                              'asset/a-e.png',
+                                              height: 12,
+                                              width: 12,
+                                            ),
+                                            const SizedBox(
+                                              width: 6,
+                                            ),
+                                            // text 2 //
+                                            Text(
+                                              'Adobe After Effect',
+                                              style: GoogleFonts.outfit(
+                                                color: style.gray04,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                letterSpacing: -0.25,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                // const SizedBox(
+                                //   height: 16,
+                                // ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
             ),
           )
-        ],
-      ),
-    );
-  }
-}
-
-// reusable widget //
-
-class ReusableAppBodyWidget extends StatelessWidget {
-  const ReusableAppBodyWidget({
-    super.key,
-    required this.icon,
-    required this.title,
-  });
-
-  final IconData icon;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, size: 24, color: style.black),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.outfit(
-                fontSize: 18, color: style.gray05, fontWeight: FontWeight.bold),
-          ),
         ],
       ),
     );
