@@ -80,14 +80,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               tabMargin: const EdgeInsets.all(8),
               padding: const EdgeInsets.all(8),
               tabs: [
-                GButton(
+                const GButton(
                   icon: Icons.home,
                   text: 'Explore',
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const Home()),
-                    );
-                  },
+                  // onPressed: () {
+                  //   Navigator.of(context).push(
+                  //     MaterialPageRoute(builder: (context) => const Home()),
+                  //   );
+                  // },
                 ),
                 GButton(
                   icon: Icons.library_add,

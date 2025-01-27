@@ -76,14 +76,14 @@ class _SettingsState extends State<Settings> {
                   );
                 },
               ),
-              GButton(
+              const GButton(
                 icon: Icons.settings,
                 text: 'Settings',
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const Settings()),
-                  );
-                },
+                // onPressed: () {
+                //   Navigator.of(context).push(
+                //     MaterialPageRoute(builder: (context) => const Settings()),
+                //   );
+                // },
               ),
             ],
             selectedIndex: _selectedIndex,
