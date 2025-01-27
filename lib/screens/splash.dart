@@ -90,6 +90,14 @@ class _SplashActionState extends State<Splash> {
                     bgColor: style.black,
                     txtColor: style.white,
                     onTap: () {
+                      // loading circle //
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          });
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(

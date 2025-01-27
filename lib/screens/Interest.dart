@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hivecast/classes/style.dart';
+import 'package:hivecast/screens/home.dart';
 import 'package:hivecast/screens/splash.dart';
+import 'package:hivecast/widgets/button.dart';
 
 class Interest extends StatefulWidget {
   const Interest({super.key});
@@ -11,6 +13,19 @@ class Interest extends StatefulWidget {
 }
 
 class _InterestState extends State<Interest> {
+  // late bool _isLoading;
+
+  // @override
+  // void initState() {
+  //   _isLoading = true;
+  //   Future.delayed(const Duration(seconds: 2), () {
+  //     setState(() {
+  //       _isLoading = false;
+  //     });
+  //   });
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -433,6 +448,38 @@ class _InterestState extends State<Interest> {
                   ],
                 ),
               ),
+            ),
+          ),
+
+          // button //
+
+          Padding(
+            padding: const EdgeInsets.only(bottom: 24.0),
+            child: MyButton(
+              iconData: null,
+              buttonText: 'Continue',
+              bgColor: style.black,
+              txtColor: style.white,
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Home()),
+                );
+                // loading circle //
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    });
+                // open new screen //
+                Future.delayed(Duration(seconds: 2));
+                Navigator.of(context).pop();
+                // Future.delayed(const Duration(seconds: 2), () {
+                //   Navigator.of(context).pop();
+                // });
+              },
             ),
           ),
         ],

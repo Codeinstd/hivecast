@@ -16,6 +16,7 @@ class MyLibrary extends StatefulWidget {
 class _MyLibraryState extends State<MyLibrary>
     with SingleTickerProviderStateMixin {
   // Tab Item - Only Text
+  int _selectedIndex = 0;
   // final List<Tab> _tabs = const [
   //   Tab(
   //     text: 'In Progress',
@@ -87,6 +88,10 @@ class _MyLibraryState extends State<MyLibrary>
                 },
               ),
             ],
+            selectedIndex: _selectedIndex,
+            onTabChange: (index) {
+              _selectedIndex = index;
+            },
           ),
         ),
       ),
