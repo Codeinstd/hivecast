@@ -19,7 +19,32 @@ class _MyDetailsState extends State<MyDetails> {
       appBar: AppBar(
         backgroundColor: style.white,
         automaticallyImplyLeading: false,
-        toolbarHeight: 0,
+        leading: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            // icon //
+            const Padding(
+              padding: EdgeInsets.only(left: 24.0),
+              child: Icon(
+                Icons.arrow_back_ios_new_outlined,
+                size: 20,
+              ),
+            ),
+            const SizedBox(
+              width: 8,
+            ),
+            // text //
+            Text(
+              'Lenny\s Corner',
+              style: GoogleFonts.outfit(
+                color: style.black,
+                fontWeight: FontWeight.w600,
+                fontSize: 14,
+              ),
+            ),
+          ],
+        ),
+        toolbarHeight: 30,
       ),
 
       // body //
@@ -28,9 +53,9 @@ class _MyDetailsState extends State<MyDetails> {
         children: [
           Expanded(
               child: Padding(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               left: 24,
-              top: 24,
+              top: 16,
               right: 24,
             ),
             child: SingleChildScrollView(
@@ -123,7 +148,7 @@ class _MyDetailsState extends State<MyDetails> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 2.0, vertical: 4.0),
                             decoration: BoxDecoration(
-                              color: style.gray06,
+                              color: style.gray,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
@@ -653,6 +678,179 @@ class _MyDetailsState extends State<MyDetails> {
                                     // text 2 //
                                     Text(
                                       'Love Corner',
+                                      style: GoogleFonts.outfit(
+                                        color: style.gray04,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10,
+                                        letterSpacing: -0.25,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        // row 03 //
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            // column 01 //
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  color: style.black,
+                                  child: Image.asset(
+                                    'asset/Mockupd.png',
+                                    height: 103,
+                                    width: 152,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 4,
+                                ),
+                                // first line //
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '2 min watch',
+                                      style: GoogleFonts.outfit(
+                                        color: style.gray04,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10,
+                                        letterSpacing: -0.25,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 6,
+                                    ),
+                                    // text 2 //
+                                    Text(
+                                      'Oct 16, 2024',
+                                      style: GoogleFonts.outfit(
+                                        color: style.gray04,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10,
+                                        letterSpacing: -0.25,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                // big text //
+                                Text(
+                                  'How to mockup design',
+                                  style: GoogleFonts.outfit(
+                                    color: style.black,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 15,
+                                    letterSpacing: -0.25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 4,
+                                ),
+                                // last line //
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                      'asset/lennys.png',
+                                      height: 12,
+                                      width: 12,
+                                    ),
+                                    const SizedBox(
+                                      width: 6,
+                                    ),
+                                    // text 2 //
+                                    Text(
+                                      'Lenny\'s Corner',
+                                      style: GoogleFonts.outfit(
+                                        color: style.gray04,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10,
+                                        letterSpacing: -0.25,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            // line 2 //
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  color: style.black,
+                                  child: Image.asset(
+                                    'asset/AE.png',
+                                    height: 103,
+                                    width: 152,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 4,
+                                ),
+                                // first line //
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '2 min watch',
+                                      style: GoogleFonts.outfit(
+                                        color: style.gray04,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10,
+                                        letterSpacing: -0.25,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 6,
+                                    ),
+                                    // text 2 //
+                                    Text(
+                                      'Oct 16, 2024',
+                                      style: GoogleFonts.outfit(
+                                        color: style.gray04,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10,
+                                        letterSpacing: -0.25,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                // big text //
+                                Text(
+                                  'Learn after-effect',
+                                  style: GoogleFonts.outfit(
+                                    color: style.black,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 15,
+                                    letterSpacing: -0.25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 4,
+                                ),
+                                // last line //
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                      'asset/a-e.png',
+                                      height: 12,
+                                      width: 12,
+                                    ),
+                                    const SizedBox(
+                                      width: 6,
+                                    ),
+                                    // text 2 //
+                                    Text(
+                                      'Adobe After Effect',
                                       style: GoogleFonts.outfit(
                                         color: style.gray04,
                                         fontWeight: FontWeight.w400,
